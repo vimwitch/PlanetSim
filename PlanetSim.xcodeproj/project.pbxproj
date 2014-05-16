@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C2DA43916DD21980033F8EA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2DA43816DD21980033F8EA /* Cocoa.framework */; };
+		4C2DA44316DD21980033F8EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C2DA44116DD21980033F8EA /* InfoPlist.strings */; };
+		4C2DA44516DD21980033F8EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DA44416DD21980033F8EA /* main.m */; };
+		4C2DA44916DD21980033F8EA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2DA44716DD21980033F8EA /* Credits.rtf */; };
+		4C2DA44C16DD21980033F8EA /* MFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DA44B16DD21980033F8EA /* MFAppDelegate.m */; };
+		4C2DA44F16DD21980033F8EA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2DA44D16DD21980033F8EA /* MainMenu.xib */; };
+		4C2DA45716DD23F00033F8EA /* MFPlanetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DA45616DD23F00033F8EA /* MFPlanetView.m */; };
+		4C406BAF17243B590055801F /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4C406BAA17243B4B0055801F /* Shader.fsh */; };
+		4C406BB017243B5C0055801F /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4C406BAB17243B4B0055801F /* Shader.vsh */; };
+		4C406BB217243B7B0055801F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C406BB117243B7B0055801F /* OpenGL.framework */; };
+		4C406BB417243ED90055801F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C406BB317243ED90055801F /* QuartzCore.framework */; };
+		4C6D82AF1924FD2200E4892F /* PathShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D82A91924FCE200E4892F /* PathShader.fsh */; };
+		4C6D82B01924FD2200E4892F /* PathShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D82AD1924FCE800E4892F /* PathShader.vsh */; };
+		4CBC47B0172E3D570048B480 /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CBC47AF172E3D570048B480 /* particle.png */; };
+		4CBC47B5172E43340048B480 /* MFDebugWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBC47B3172E43340048B480 /* MFDebugWindowController.m */; };
+		4CBC47B6172E43340048B480 /* MFDebugWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBC47B4172E43340048B480 /* MFDebugWindowController.xib */; };
+		4CBC47B8173038EA0048B480 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CBC47B7173038EA0048B480 /* white.png */; };
+		4CFD9C4C184F286C00130830 /* libMFGLEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFD9C47184F285600130830 /* libMFGLEngine.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CFD9C44184F285600130830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF0408117E23A0400570331;
+			remoteInfo = iOSMFGLEngine;
+		};
+		4CFD9C46184F285600130830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF040BF17E25C2200570331;
+			remoteInfo = MFGLEngine;
+		};
+		4CFD9C48184F285600130830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF0412E17E2A5CD00570331;
+			remoteInfo = MFGLEngineTest;
+		};
+		4CFD9C4A184F285E00130830 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CF040BE17E25C2200570331;
+			remoteInfo = MFGLEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C2DA43516DD21980033F8EA /* PlanetSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C2DA43816DD21980033F8EA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4C2DA43B16DD21980033F8EA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4C2DA43C16DD21980033F8EA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C2DA43D16DD21980033F8EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C2DA44016DD21980033F8EA /* PlanetSim-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanetSim-Info.plist"; sourceTree = "<group>"; };
+		4C2DA44216DD21980033F8EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4C2DA44416DD21980033F8EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C2DA44616DD21980033F8EA /* PlanetSim-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanetSim-Prefix.pch"; sourceTree = "<group>"; };
+		4C2DA44816DD21980033F8EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4C2DA44A16DD21980033F8EA /* MFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFAppDelegate.h; sourceTree = "<group>"; };
+		4C2DA44B16DD21980033F8EA /* MFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFAppDelegate.m; sourceTree = "<group>"; };
+		4C2DA44E16DD21980033F8EA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4C2DA45516DD23F00033F8EA /* MFPlanetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPlanetView.h; sourceTree = "<group>"; };
+		4C2DA45616DD23F00033F8EA /* MFPlanetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPlanetView.m; sourceTree = "<group>"; };
+		4C2DA45B16DD243E0033F8EA /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		4C406BAA17243B4B0055801F /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		4C406BAB17243B4B0055801F /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		4C406BB117243B7B0055801F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		4C406BB317243ED90055801F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4C6D82A91924FCE200E4892F /* PathShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PathShader.fsh; sourceTree = "<group>"; };
+		4C6D82AD1924FCE800E4892F /* PathShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PathShader.vsh; sourceTree = "<group>"; };
+		4CBC47AF172E3D570048B480 /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
+		4CBC47B2172E43340048B480 /* MFDebugWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDebugWindowController.h; sourceTree = "<group>"; };
+		4CBC47B3172E43340048B480 /* MFDebugWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDebugWindowController.m; sourceTree = "<group>"; };
+		4CBC47B4172E43340048B480 /* MFDebugWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFDebugWindowController.xib; sourceTree = "<group>"; };
+		4CBC47B7173038EA0048B480 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
+		4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MFGLEngine.xcodeproj; path = ../MFGLEngine/MFGLEngine.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C2DA43216DD21980033F8EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CFD9C4C184F286C00130830 /* libMFGLEngine.a in Frameworks */,
+				4C406BB417243ED90055801F /* QuartzCore.framework in Frameworks */,
+				4C406BB217243B7B0055801F /* OpenGL.framework in Frameworks */,
+				4C2DA43916DD21980033F8EA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C2DA42C16DD21980033F8EA = {
+			isa = PBXGroup;
+			children = (
+				4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */,
+				4C2DA43E16DD21980033F8EA /* PlanetSim */,
+				4C2DA43716DD21980033F8EA /* Frameworks */,
+				4C2DA43616DD21980033F8EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C2DA43616DD21980033F8EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DA43516DD21980033F8EA /* PlanetSim.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C2DA43716DD21980033F8EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C406BB317243ED90055801F /* QuartzCore.framework */,
+				4C406BB117243B7B0055801F /* OpenGL.framework */,
+				4C2DA43816DD21980033F8EA /* Cocoa.framework */,
+				4C2DA43A16DD21980033F8EA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C2DA43A16DD21980033F8EA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DA43B16DD21980033F8EA /* AppKit.framework */,
+				4C2DA43C16DD21980033F8EA /* CoreData.framework */,
+				4C2DA43D16DD21980033F8EA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4C2DA43E16DD21980033F8EA /* PlanetSim */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DA45B16DD243E0033F8EA /* Constant.h */,
+				4C2DA44A16DD21980033F8EA /* MFAppDelegate.h */,
+				4C2DA44B16DD21980033F8EA /* MFAppDelegate.m */,
+				4C2DA44D16DD21980033F8EA /* MainMenu.xib */,
+				4C2DA45516DD23F00033F8EA /* MFPlanetView.h */,
+				4C2DA45616DD23F00033F8EA /* MFPlanetView.m */,
+				4C406BAA17243B4B0055801F /* Shader.fsh */,
+				4C406BAB17243B4B0055801F /* Shader.vsh */,
+				4C6D82A91924FCE200E4892F /* PathShader.fsh */,
+				4C6D82AD1924FCE800E4892F /* PathShader.vsh */,
+				4CBC47B1172E431D0048B480 /* Debugging */,
+				4C2DA43F16DD21980033F8EA /* Supporting Files */,
+			);
+			path = PlanetSim;
+			sourceTree = "<group>";
+		};
+		4C2DA43F16DD21980033F8EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CBC47AF172E3D570048B480 /* particle.png */,
+				4CBC47B7173038EA0048B480 /* white.png */,
+				4C2DA44016DD21980033F8EA /* PlanetSim-Info.plist */,
+				4C2DA44116DD21980033F8EA /* InfoPlist.strings */,
+				4C2DA44416DD21980033F8EA /* main.m */,
+				4C2DA44616DD21980033F8EA /* PlanetSim-Prefix.pch */,
+				4C2DA44716DD21980033F8EA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CBC47B1172E431D0048B480 /* Debugging */ = {
+			isa = PBXGroup;
+			children = (
+				4CBC47B2172E43340048B480 /* MFDebugWindowController.h */,
+				4CBC47B3172E43340048B480 /* MFDebugWindowController.m */,
+				4CBC47B4172E43340048B480 /* MFDebugWindowController.xib */,
+			);
+			name = Debugging;
+			sourceTree = "<group>";
+		};
+		4CFD9C3F184F285600130830 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CFD9C45184F285600130830 /* libiOSMFGLEngine.a */,
+				4CFD9C47184F285600130830 /* libMFGLEngine.a */,
+				4CFD9C49184F285600130830 /* MFGLEngineTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C2DA43416DD21980033F8EA /* PlanetSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C2DA45216DD21980033F8EA /* Build configuration list for PBXNativeTarget "PlanetSim" */;
+			buildPhases = (
+				4C2DA43116DD21980033F8EA /* Sources */,
+				4C2DA43216DD21980033F8EA /* Frameworks */,
+				4C2DA43316DD21980033F8EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CFD9C4B184F285E00130830 /* PBXTargetDependency */,
+			);
+			name = PlanetSim;
+			productName = PlanetSim;
+			productReference = 4C2DA43516DD21980033F8EA /* PlanetSim.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C2DA42D16DD21980033F8EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Chance Hudson";
+			};
+			buildConfigurationList = 4C2DA43016DD21980033F8EA /* Build configuration list for PBXProject "PlanetSim" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4C2DA42C16DD21980033F8EA;
+			productRefGroup = 4C2DA43616DD21980033F8EA /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4CFD9C3F184F285600130830 /* Products */;
+					ProjectRef = 4CFD9C3E184F285600130830 /* MFGLEngine.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4C2DA43416DD21980033F8EA /* PlanetSim */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4CFD9C45184F285600130830 /* libiOSMFGLEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libiOSMFGLEngine.a;
+			remoteRef = 4CFD9C44184F285600130830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4CFD9C47184F285600130830 /* libMFGLEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMFGLEngine.a;
+			remoteRef = 4CFD9C46184F285600130830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4CFD9C49184F285600130830 /* MFGLEngineTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = MFGLEngineTest.app;
+			remoteRef = 4CFD9C48184F285600130830 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C2DA43316DD21980033F8EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C6D82AF1924FD2200E4892F /* PathShader.fsh in Resources */,
+				4C6D82B01924FD2200E4892F /* PathShader.vsh in Resources */,
+				4C2DA44316DD21980033F8EA /* InfoPlist.strings in Resources */,
+				4C2DA44916DD21980033F8EA /* Credits.rtf in Resources */,
+				4C2DA44F16DD21980033F8EA /* MainMenu.xib in Resources */,
+				4C406BAF17243B590055801F /* Shader.fsh in Resources */,
+				4C406BB017243B5C0055801F /* Shader.vsh in Resources */,
+				4CBC47B0172E3D570048B480 /* particle.png in Resources */,
+				4CBC47B6172E43340048B480 /* MFDebugWindowController.xib in Resources */,
+				4CBC47B8173038EA0048B480 /* white.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C2DA43116DD21980033F8EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C2DA44516DD21980033F8EA /* main.m in Sources */,
+				4C2DA44C16DD21980033F8EA /* MFAppDelegate.m in Sources */,
+				4C2DA45716DD23F00033F8EA /* MFPlanetView.m in Sources */,
+				4CBC47B5172E43340048B480 /* MFDebugWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CFD9C4B184F285E00130830 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MFGLEngine;
+			targetProxy = 4CFD9C4A184F285E00130830 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4C2DA44116DD21980033F8EA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C2DA44216DD21980033F8EA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4C2DA44716DD21980033F8EA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C2DA44816DD21980033F8EA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		4C2DA44D16DD21980033F8EA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C2DA44E16DD21980033F8EA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C2DA45016DD21980033F8EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4C2DA45116DD21980033F8EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4C2DA45316DD21980033F8EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetSim/PlanetSim-Prefix.pch";
+				INFOPLIST_FILE = "PlanetSim/PlanetSim-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../MFGLEngine/MFGLEngine\"";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4C2DA45416DD21980033F8EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanetSim/PlanetSim-Prefix.pch";
+				INFOPLIST_FILE = "PlanetSim/PlanetSim-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../MFGLEngine/MFGLEngine\"";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C2DA43016DD21980033F8EA /* Build configuration list for PBXProject "PlanetSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C2DA45016DD21980033F8EA /* Debug */,
+				4C2DA45116DD21980033F8EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C2DA45216DD21980033F8EA /* Build configuration list for PBXNativeTarget "PlanetSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C2DA45316DD21980033F8EA /* Debug */,
+				4C2DA45416DD21980033F8EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C2DA42D16DD21980033F8EA /* Project object */;
+}
