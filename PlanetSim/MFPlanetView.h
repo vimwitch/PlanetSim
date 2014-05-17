@@ -47,6 +47,7 @@ typedef struct _planet{
     int planetArrayCount;
     int planetArraySize;
     MFGLImage planetImage;
+    int centerPlanet;
     MFGLBatchRenderer *batchRenderer;
     GLuint defaultProgram;
     GLuint vertexArrayObject;
@@ -55,6 +56,7 @@ typedef struct _planet{
     
     GLuint textureFrameBuffer;
     MFGLImage bufferImage;
+    BOOL bufferImageNeedsClearing;
     
     MFDebugWindowController *debugWindow;
     CFAbsoluteTime lastFrame;

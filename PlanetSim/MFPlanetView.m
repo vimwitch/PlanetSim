@@ -92,6 +92,7 @@ static int bufferInfoArrayCount = 0;
     glClear(GL_COLOR_BUFFER_BIT);
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFBO);
     glUseProgram(defaultProgram);
+    bufferImageNeedsClearing = NO;
     
     // Create a display link capable of being used with all active displays
     CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
@@ -109,6 +110,10 @@ static int bufferInfoArrayCount = 0;
     
     [self setupPlanetSunForm];
 //    [self setupQuadForm];
+}
+
+-(BOOL)acceptsFirstResponder{
+    return YES;
 }
 
 -(void)setupPlanetSunForm{
@@ -216,6 +221,11 @@ void getAttribArrayFromColor(NSColor *color, GLfloat *arr){
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &defaultFBO);
     glBindFramebuffer(GL_FRAMEBUFFER, textureFrameBuffer);
     //draw here
+    if(bufferImageNeedsClearing){
+        glClearColor(0, 0, 0, 0);
+        glClear(GL_COLOR_BUFFER_BIT);
+        bufferImageNeedsClearing = NO;
+    }
     for(int o = 0; o < planetArrayCount; o++){
         Planet obj = planets[o];
         if(obj.tag == 0)
@@ -245,7 +255,7 @@ void getAttribArrayFromColor(NSColor *color, GLfloat *arr){
         GLfloat color[4];
         getAttribArrayFromColor(obj.color, color);
 //        [batchRenderer addFrame:CGRectMake(obj.location.x, obj.location.y, obj.radius*2, obj.radius*2) forImage:planetImage renderAlpha:YES offset:MFGLVectorZero attribs:color attribCount:4];
-        [batchRenderer addCircleAtPoint:MFGLVectorMake(obj.location.x+obj.radius, obj.location.y+obj.radius) radius:obj.radius vertexCount:30 shouldRenderAlpha:YES attribs:color attribCount:4];
+        [batchRenderer addCircleAtPoint:MFGLVectorMake(obj.location.x+obj.radius, obj.location.y+obj.radius) radius:obj.radius vertexCount:30 shouldRenderAlpha:YES offset:mfvaddv(planets[1].location, MFGLVectorMake(self.frame.size.width/-2.0, self.frame.size.height/-2.0)) attribs:color attribCount:4];
 //        [batchRenderer addFrame:CGRectMake(obj.location.x, obj.location.y, obj.radius*2, obj.radius*2) withAlpha:1.0 forImage:planetImage renderAlpha:YES offset:0 color:obj.color renderMode:GL_TRIANGLES];
 //        [batchRenderer addLine:obj.path offset:0];
     }
@@ -332,9 +342,86 @@ static void subOrBufferData(GLenum buffer, GLuint bufferID, size_t size, const G
         }
         planets[x] = obj;
     }
+    //simulate any planet collisions
+    for(int x = 0; x < planetArrayCount; x++){
+        for(int y = x+1; y < planetArrayCount; y++){
+            if([self isPlanetColliding:planets[x] withPlanet:planets[y]])
+                [self collide:planets[x] with:planets[y]];
+        }
+//        [self simulatePlanetCollisions:planets[x]];
+    }
+}
+
+-(BOOL)isPlanetColliding:(Planet)planet1 withPlanet:(Planet)planet2
+{
+    double dist = powf((planet1.location.x+planet1.radius)-(planet2.location.x+planet2.radius), 2)+powf((planet1.location.y+planet1.radius)-(planet2.location.y+planet2.radius), 2);
+    return sqrt(dist) < (planet1.radius+planet2.radius);
+}
+
+-(void)simulatePlanetCollisions:(Planet)planet
+{
+    for(int x = 0; x < planetArrayCount; x++){
+        if(planets[x].tag == planet.tag)
+            continue;
+        if([self isPlanetColliding:planet withPlanet:planets[x]])
+            [self collide:planet with:planets[x]];
+    }
+}
+
+-(void)collide:(Planet)planet1 with:(Planet)planet2{
+    if(![self isPlanetColliding:planet1 withPlanet:planet2])
+        return; //planets aren't actuall colliding
+    //simulate elastic collision
+    Planet largerPlanet = (planet1.mass>planet2.mass)?planet1:planet2;
+    Planet smallerPlanet = (planet1.mass<planet2.mass)?planet1:planet2;
+    // (1/2)mv^2=Uk
+    largerPlanet.radius = (largerPlanet.radius*(smallerPlanet.mass+largerPlanet.mass))/largerPlanet.mass;
+    double xKineticEnergy = (0.5)*(largerPlanet.mass*powf(largerPlanet.velocity.x,2)+smallerPlanet.mass*powf(smallerPlanet.velocity.x,2));
+    double yKineticEnergy = (0.5)*(largerPlanet.mass*powf(largerPlanet.velocity.y,2)+smallerPlanet.mass*powf(smallerPlanet.velocity.y,2));
+    largerPlanet.mass += smallerPlanet.mass;
+    largerPlanet.velocity.x = ((largerPlanet.velocity.x>0)?1:-1)*sqrt((2*xKineticEnergy)/largerPlanet.mass);
+    largerPlanet.velocity.y = ((largerPlanet.velocity.y>0)?1:-1)*sqrt((2*yKineticEnergy)/largerPlanet.mass);
+    [self removePlanetWithTag:smallerPlanet.tag];
+    for(int x = 0; x < planetArrayCount; x++){
+        if(planets[x].tag == largerPlanet.tag){
+            planets[x] = largerPlanet;
+            break;
+        }
+    }
+}
+
+#pragma mark Planet array handling
+
+-(void)replacePlanetWithTag:(int)tag withPlanet:(Planet)planet{
+    for(int x = 0; x < planetArrayCount; x++){
+        if(planets[x].tag == tag){
+            planet.tag = tag;
+            planets[x] = planet;
+            break;
+        }
+    }
+}
+
+-(void)removePlanetWithTag:(int)tag{
+    for(int x = 0; x < planetArrayCount; x++){
+        if(planets[x].tag == tag){
+            for(int y = x; y < planetArrayCount-1; y++){
+                planets[y] = planets[y+1];
+            }
+            planetArrayCount--;
+            break;
+        }
+    }
 }
 
 #pragma mark click detection
+
+-(void)keyUp:(NSEvent *)theEvent{
+    if(theEvent.keyCode == 8 /*c key*/)
+        //clear the
+        bufferImageNeedsClearing = YES;
+//    NSLog(@"%i", theEvent.keyCode);
+}
 
 -(void)mouseUp:(NSEvent *)theEvent{
 //    float mass = 10000000000000000;
